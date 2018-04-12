@@ -1,0 +1,75 @@
+#include <string>
+#include <iostream>
+using namespace std;
+ 
+class Animal
+{
+protected:
+    string name;
+public:
+    Animal(string name)
+        : name(name)
+    {
+    };
+    
+    virtual void Say() = 0;
+	 };
+ 
+class Dog : public Animal
+{
+public:
+    Dog(string name) : Animal(name)
+    {
+    };
+ 
+    void  Say()
+    {
+        cout << name << " ñîáàêà " << endl;
+    }
+    
+};
+ 
+class Cat : public Animal
+{
+public:
+    Cat(string name) : Animal(name)
+    {
+    };
+ 
+    void Say() 
+    {
+        cout << name << " êîøêà " << endl;
+    }
+};
+ 
+class Parrot : public Animal
+{
+public:
+    Parrot(string name) : Animal(name)
+    {
+    };
+ 
+    void Say() 
+    {
+        cout << name << " ïîïóãàé " << endl;
+    }
+};
+ 
+
+ 
+int main()
+{
+	setlocale(0,"rus");
+ 
+    Animal *animals[3] = {
+        new Dog("Dog"),
+        new Cat("Cat"),
+        new Parrot("Parrot") 
+    };
+ 
+    for (int i = 0; i < 3; i++)
+        {animals[i]->Say();};
+    
+     system("pause"); 
+         return 0;
+}
